@@ -12,8 +12,6 @@
 
 
     function getNewsList(newsid) {
-
-        console.log('newsid---', newsid);
         // return fetch(`http://m.fbecn.com/24h/news_fbe0406.json?newsid=${newsid}`).then((response) => {
         //     console.log('response', response)
         //     if (response.status === 200) {
@@ -218,10 +216,9 @@
         up: {
             auto: true, //是否在初始化时以上拉加载的方式自动加载第一页数据; 默认false
             isBounce: false, //此处禁止ios回弹,解析(务必认真阅读,特别是最后一点): http://www.mescroll.com/qa.html#q10
-            callback: upCallback, //上拉回调,此处可简写; 相当于 callback: function (page) { upCallback(page); }
+            callback: upCallback, //上拉回调,
             toTop: { //配置回到顶部按钮
-                src: "src/assets/mescroll-totop.png", //默认滚动到1000px显示,可配置offset修改
-                //offset : 1000
+                src: "https://deja-vuuu.github.io/kls/src/assets/mescroll-totop.png",
             }
         },
 
@@ -237,8 +234,7 @@
             mescroll.endSuccess();
             //设置列表数据
             const newsList = data.list;
-            refreshList();
-            // setList(newsList, true)
+            setList(newsList, true);
         }, function () {
             //请求失败的回调,隐藏下拉刷新的状态
             mescroll.endErr();
@@ -275,10 +271,12 @@
 
     }
 
-    function setList(curPageData, isAppend) {
+    function setList(curPageData, isRefresh: boolean) {
         const listDom = document.getElementById("newsList");
         const toAddFragment = document.createDocumentFragment();
-        let li = '';
+        if (isRefresh) {
+
+        }
         curPageData.forEach((value, index) => {
             const li = document.createElement('li');
             appendChild(li, {
@@ -294,11 +292,8 @@
 
             toAddFragment.appendChild(li);
         });
-        if (isAppend) {
-            listDom.appendChild(toAddFragment); //加在列表的后面,上拉加载
-        } else {
-            listDom.insertBefore(toAddFragment, listDom.firstChild); //加在列表的前面,下拉刷新
-        }
+        listDom.appendChild(toAddFragment);
+
     }
     async function getListDataFromNet(pageNum, pageSize, successCallback, errorCallback) {
         console.log(pageNum, pageSize);
