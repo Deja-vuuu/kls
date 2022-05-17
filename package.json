@@ -3,14 +3,24 @@
 	"displayName": "快兰斯财经",
 	"description": "快兰斯24小时财经直播",
 	"version": "0.0.1",
+	"publisher": "Kong",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
+
 	"categories": [
 		"Other"
 	],
+	"keywords": [
+		"财经",
+		"新闻",
+		"行情",
+		"A股"
+	],
+	"repository": "https://github.com/Deja-vuuu/kls",
 	"activationEvents": [
-		"onView:kls.plugin.webView"
+		"onView:kls.plugin.webView",
+		"onCommand:kls.sayHello"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -26,6 +36,18 @@
 				"id": "kls.plugin.webView",
 				"name": "今日热点",
 				"type": "webview"
+			}]
+		},
+		"commands": [{
+			"command": "kls.sayHello",
+			"title": "Add Color kls.sayHello",
+			"icon": "$(refresh)"
+		}],
+		"menus": {
+			"view/title": [{
+				"command": "kls.sayHello",
+				"group": "navigation",
+				"when": "view == kls.plugin.webView"
 			}]
 		}
 	},

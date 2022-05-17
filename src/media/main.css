@@ -2,7 +2,9 @@ body {
   background-color: transparent;
   overflow: hidden;
 }
-
+ul {
+  padding: 0 10px;
+}
 li {
   margin-top: 20px;
   font-family: var(--vscode-font-family);
@@ -14,44 +16,10 @@ li {
   color: #c7000a;
   font-weight: bold;
 }
+.important-news {
+  color: #fff900d1;
+}
 
 .news-content {
-  margin-left: 10px;
-}
-
-.color-list {
-  list-style: none;
-  padding: 0;
-}
-
-.color-entry {
-  width: 100%;
-  display: flex;
-  margin-bottom: 0.4em;
-  border: 1px solid var(--vscode-input-border);
-}
-
-.color-preview {
-  width: 2em;
-  height: 2em;
-}
-
-.color-preview:hover {
-  outline: inset white;
-}
-
-.color-input {
-  display: block;
-  flex: 1;
-  width: 100%;
-  color: var(--vscode-input-foreground);
-  background-color: var(--vscode-input-background);
-  border: none;
-  padding: 0 0.6em;
-}
-
-.add-color-button {
-  display: block;
-  border: none;
-  margin: 0 auto;
+  margin-left: 2px;
 }
