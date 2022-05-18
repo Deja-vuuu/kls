@@ -2,7 +2,7 @@
 	"name": "kls",
 	"displayName": "快兰斯财经",
 	"description": "快兰斯24小时财经直播",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"publisher": "Kong",
 	"engines": {
 		"vscode": "^1.66.0"
