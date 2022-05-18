@@ -33,7 +33,7 @@
             isBounce: false, //此处禁止ios回弹,解析(务必认真阅读,特别是最后一点): http://www.mescroll.com/qa.html#q10
             callback: upCallback, //上拉回调,
             toTop: { //配置回到顶部按钮
-                src: "https://deja-vuuu.github.io/kls/src/assets/mescroll-totop.png",
+                src: "https://deja-vuuu.github.io/kls/assets/img/mescroll-totop.png",
             }
         },
     });
