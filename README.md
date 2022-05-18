@@ -1,9 +1,9 @@
 <div align="center">
 <img src="https://deja-vuuu.github.io/kls/assets/img/kls.png" alt="快兰斯"/>
 
-# kls（快兰斯24小时财经直播）
+# 快兰斯24小时财经直播
 
-**快兰斯**——VSCode 里也可以看财经直播。
+**快兰斯(kls)**——VSCode 里也可以看财经直播。
 
 
 
