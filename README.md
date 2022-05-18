@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://deja-vuuu.github.io/kls/src/assets/kls.png" alt="快兰斯"/>
+<img src="https://deja-vuuu.github.io/kls/assets/img/kls.png" alt="快兰斯"/>
 
 # kls（快兰斯24小时财经直播）
 
@@ -13,7 +13,7 @@
 
 ## 赞助支持一下 ↓↓
 
-[Buy me a coffee](https://github.com/giscafer/buy-me-a-coffee/blob/master/README.md)
+[Buy me a coffee]()
 
 ## License
 
