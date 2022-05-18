@@ -2,17 +2,18 @@
 	"name": "kls",
 	"displayName": "快兰斯财经",
 	"description": "快兰斯24小时财经直播",
-	"version": "0.0.1",
+	"version": "0.0.4",
 	"publisher": "Kong",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
-
+	"icon": "assets/img/kls.png",
 	"categories": [
 		"Other"
 	],
 	"keywords": [
 		"财经",
+		"快兰斯",
 		"新闻",
 		"行情",
 		"A股"
@@ -28,7 +29,7 @@
 			"activitybar": [{
 				"id": "klsplugin",
 				"title": "快兰斯24小时财经直播",
-				"icon": "src/assets/kls.png"
+				"icon": "assets/img/logo.svg"
 			}]
 		},
 		"views": {

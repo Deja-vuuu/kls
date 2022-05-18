@@ -1,21 +1,14 @@
-// This script will be run within the webview itself
-// It cannot access the main VS Code APIs directly.
 (async function () {
     const vscode = acquireVsCodeApi();
-    const oldNewsState = vscode.getState() || {
-        news: []
-    };
 
     function getNewsList(newsid) {
         return fetch(`http://m.fbecn.com/24h/news_fbe0406.json?newsid=${newsid}`).then((response) => {
-            console.log('response', response)
             if (response.status === 200) {
                 return response.json()
             } else {
                 return null
             }
         })
-
     }
 
     /**
@@ -30,8 +23,6 @@
         ele.appendChild(text);
         parentalElement.appendChild(ele);
     }
-
-
     const mescroll = new MeScroll("mescroll", {
         down: {
             auto: false, //是否在初始化完毕之后自动执行下拉回调callback; 默认true
@@ -46,7 +37,6 @@
             }
         },
     });
-
     /*下拉刷新的回调 */
     function downCallback() {
         //请求加载数据
@@ -57,12 +47,15 @@
             //设置列表数据
             const newsList = data.list;
             setList(newsList, true);
+            vscode.postMessage({
+                type: 'showInformationMessage',
+                value: '刷新成功'
+            });
         }, function () {
             //请求失败的回调,隐藏下拉刷新的状态
             mescroll.endErr();
         });
     }
-
     /*上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
     function upCallback(page) {
         const pageSize = 20;
@@ -74,7 +67,7 @@
             const newsList = curPageData.list;
             mescroll.endSuccess(newsList.length, hasNext); //必传参数(当前页的数据个数, 是否有下一页true/false)
             //设置列表数据
-            setList(newsList, true);
+            setList(newsList, false);
         }, function () {
             //请求失败的回调,隐藏下拉刷新和上拉加载的状态;
             mescroll.endErr();
@@ -89,6 +82,7 @@
     function setList(curPageData, isRefresh = false) {
         const listDom = document.getElementById("newsList");
         const toAddFragment = document.createDocumentFragment();
+
         if (isRefresh) {
             listDom.innerHTML = '';
         }
@@ -105,8 +99,11 @@
                 content: value.content
             });
             toAddFragment.appendChild(li);
+
         });
+
         listDom.appendChild(toAddFragment);
+
     }
     async function getListDataFromNet(pageNum, pageSize, successCallback, errorCallback) {
         try {
@@ -136,18 +133,15 @@
             type: 'showInformationMessage',
             value: '刷新成功'
         });
-
     }
 
-    // Handle messages sent from the extension to the webview
     window.addEventListener('message', event => {
-        const message = event.data; // The json data that the extension sent
+        const message = event.data;
         switch (message.type) {
             case 'refreshList': {
                 refreshList();
                 break;
             }
-
         }
     });
     // -------------------------------- 工具函数 --------------------------------
@@ -174,6 +168,5 @@
         const numStr = num.toString();
         return numStr.length === 1 ? 0 + numStr : numStr;
     }
-
 
 }());
