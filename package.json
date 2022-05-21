@@ -40,13 +40,13 @@
 			}]
 		},
 		"commands": [{
-			"command": "kls.sayHello",
-			"title": "Add Color kls.sayHello",
+			"command": "kls.refresh",
+			"title": "刷新新闻列表",
 			"icon": "$(refresh)"
 		}],
 		"menus": {
 			"view/title": [{
-				"command": "kls.sayHello",
+				"command": "kls.refresh",
 				"group": "navigation",
 				"when": "view == kls.plugin.webView"
 			}]

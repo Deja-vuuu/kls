@@ -22,7 +22,6 @@ class NewsViewProvider implements vscode.WebviewViewProvider {
 
     webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
     webviewView.webview.onDidReceiveMessage((data) => {
-      console.log(data);
       switch (data.type) {
         case 'showInformationMessage': {
           vscode.window.showInformationMessage(data.value);
@@ -48,7 +47,6 @@ class NewsViewProvider implements vscode.WebviewViewProvider {
     const styleMescrollUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._extensionUri, 'assets/lib', 'mescroll.min.css'),
     );
-    console.log('styleMescrollUri', styleMescrollUri);
     const nonce = getNonce();
     return `<!DOCTYPE html>
               <html lang="en">
@@ -83,11 +81,10 @@ class NewsViewProvider implements vscode.WebviewViewProvider {
 const creatNewsProvider = (context: vscode.ExtensionContext) => {
   const provider = new NewsViewProvider(context.extensionUri);
   context.subscriptions.push(
-    vscode.commands.registerCommand('kls.sayHello', function () {
+    vscode.commands.registerCommand('kls.refresh', function () {
       provider.refreshList();
     }),
   );
-
   context.subscriptions.push(vscode.window.registerWebviewViewProvider(NewsViewProvider.viewType, provider));
 };
 
