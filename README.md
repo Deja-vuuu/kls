@@ -5,7 +5,8 @@
 
 **快兰斯(kls)**——VSCode 里也可以看财经直播。
 
-投资有风险，入市需谨慎！
+  投资有风险，入市需谨慎！
+  
 [![Marketplace](https://img.shields.io/visual-studio-marketplace/v/Kong.kls.svg?label=Marketplace&style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=Kong.kls)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/Kong.kls.svg?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Kong.kls)
 [![Rating](https://img.shields.io/visual-studio-marketplace/stars/Kong.kls.svg?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Kong.kls)
